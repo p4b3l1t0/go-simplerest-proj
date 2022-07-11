@@ -35,9 +35,9 @@ func GetTaskHandler(w http.ResponseWriter, r *http.Request) {
 
 func CreateTaskHandler(w http.ResponseWriter, r *http.Request) {
 	var task []models.Task
-	json.NewDecoder(r.body).Decode(&task)
+	json.NewDecoder(r.Body).Decode(&task)
 	createdTask := db.DB.Create(&task)
-	err := CreatedTask.Error
+	err := createdTask.Error
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest) // 400
 		w.Write([]byte(err.Error()))
@@ -52,7 +52,7 @@ func DeleteTaskHandler(w http.ResponseWriter, r *http.Request) {
 	var task models.Task
 	params := mux.Vars(r)
 
-	db.DB.Fist(&task, params["id"])
+	db.DB.First(&task, params["id"])
 
 	if task.ID == 0 {
 		w.WriteHeader(http.StatusNotFound) // 404
@@ -60,5 +60,5 @@ func DeleteTaskHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	db.DB.Unscoped().Delete(&task)
-	w.WriteHeader(http.StatusNotContent) // 204
+	w.WriteHeader(http.StatusNoContent) // 204
 }

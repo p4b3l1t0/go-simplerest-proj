@@ -16,13 +16,13 @@ func GetUsersHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetUserHandler(w http.ResponseWriter, r *http.Request) {
-	var users []models.User
+	var user models.User
 	params := mux.Vars(r)
 	db.DB.First(&user, params["id"])
 	json.NewEncoder(w).Encode(&user)
 
 	if user.ID == 0 {
-		w.WriteHeader((http.StatusNotFound)
+		w.WriteHeader(http.StatusNotFound)
 		w.Write([]byte("User not found"))
 		return
 	}
@@ -47,18 +47,18 @@ func PostUserHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeleteUserHandler(w http.ResponseWriter, r *http.Request) {
-	var users []models.User
+	var user models.User
 	params := mux.Vars(r)
 	db.DB.First(&user, params["id"])
 
 	if user.ID == 0 {
-		w.WriteHeader((http.StatusNotFound)
+		w.WriteHeader(http.StatusNotFound)
 		w.Write([]byte("User not found"))
 		return
 	}
 
 	db.DB.Unscoped().Delete(&user)
-	w.WriteHeader(http.StatusOk) // 200
+	w.WriteHeader(http.StatusOK) // 200
 
 }
 

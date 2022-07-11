@@ -12,7 +12,7 @@ var DB *gorm.DB
 
 func DBconnect(){
 	var error error
-	DB, error := gorm.Open(postgres.Open(DNS), &gorm.config{})
+	DB, error = gorm.Open(postgres.Open(DSN), &gorm.Config{})
 	if error != nil {
 		log.Fatal(error)
 	} else {

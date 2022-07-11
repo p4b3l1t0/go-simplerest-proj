@@ -3,7 +3,7 @@ package models
 import "gorm.io/gorm"
 
 type User struct {
-	gorm.model
+	gorm.Model
 
 	FirstName 	string `gorm:"not null" json:"first_name"`
 	LastName 	string `gorm:"not null" json:"last_name"`

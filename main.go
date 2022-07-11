@@ -1,12 +1,12 @@
 package main 
 
 import (
-	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 	"github.com/gorilla/mux"
 	"github.com/p4b3l1t0/go-simplerest-proj/routes"	
+	"github.com/p4b3l1t0/go-simplerest-proj/models"	
+	"github.com/p4b3l1t0/go-simplerest-proj/db"	
 )
 
 
@@ -14,8 +14,8 @@ func main() {
 	
 	db.DBconnect()
 	
-	db.AutoMigrate(models.Task{})
-	db.AutoMigrate(models.User{})
+	db.DB.AutoMigrate(models.Task{})
+	db.DB.AutoMigrate(models.User{})
 	
 	r := mux.NewRouter()
 

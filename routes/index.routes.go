@@ -2,6 +2,6 @@ package routes
 
 import "net/http"
 
-func HomeHandler(w http.ResponseWriter, r *http,Request) {
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Use endpoints"))
 }
