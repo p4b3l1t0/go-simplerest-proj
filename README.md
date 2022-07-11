@@ -1,15 +1,18 @@
 # go-simplerest-proj
 Go REST API CRUD Simple Project
 
+## This is a simple go api rest CRUD project
 
+### This code uses PostGreSQL as Database Engine.
 
-This is a simple go api rest project to create tasks and users and associate them between them. 
+    docker run --name some-postgres -e POSTGRES_USER=p4b3l -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
 
-This code uses PostGreSQL as Database Engine.
+### Install following modules
 
- go get -u gorm.io/gorm 
- go get -u gorm.io/drivers/posgres
-
-
-docker run --name some-postgres -e POSTGRES_USER=p4b3l -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
-
+    go get github.com/p4b3l1t0/go-simplerest-proj
+  
+    go get -u gorm.io/drivers/posgres
+ 
+    go get -u gorm.io/gorm
+  
+    go get github.com/gorilla/mux 
