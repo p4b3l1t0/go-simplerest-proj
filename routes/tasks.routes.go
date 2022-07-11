@@ -1,10 +1,13 @@
 package routes
 
 import (
+	"encoding/json"
 	"net/http"
-	"github.com/p4b3l1t0/go-simplerest-proj/db"
-)
 
+	"github.com/p4b3l1t0/go-simplerest-proj/db"
+	"github.com/p4b3l1t0/go-simplerest-proj/models"
+	"github.com/gorilla/mux"
+)
 
 func GetTasksHandler(w http.ResponseWriter, r *http.Request) {
 	var tasks []models.Task

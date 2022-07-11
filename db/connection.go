@@ -1,8 +1,10 @@
 package db 
 
 import (
+	"log"
+
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"gorm.io/driver/posgres"
 )
 
 var DSN = "host=localhost user=p4b3l password=mysecretpassword dbname=gorm port=5432"

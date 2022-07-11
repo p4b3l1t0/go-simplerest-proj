@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 	"github.com/gorilla/mux"
-	"github.com/p4b3l1t0/go-gorm-restapi/routes"	
+	"github.com/p4b3l1t0/go-simplerest-proj/routes"	
 )
 
 
